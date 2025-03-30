@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:rise/core/config/constants.dart';
 import 'package:rise/core/config/extensions.dart';
 import 'package:rise/core/theme/app_colors.dart';
+import 'package:rise/features/home_screen/presentation/dialogs/show_habit_details_sheet.dart';
+import 'package:rise/features/home_screen/presentation/dialogs/show_streak_modal_sheet.dart';
 import 'package:rise/features/home_screen/presentation/views/log_habits.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -120,7 +122,18 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     itemBuilder: (context, habitIndex) {
                       return GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          showHabitDetailsBottomSheet(
+                            context,
+                            friendName: "Destiny Ed",
+                            habitName: "Habit ${habitIndex + 1}",
+                            streakCount: habitIndex * 13,
+                            missedDays: 20,
+                            unMissedDays: 3,
+                            comments: [],
+                            isCurrentUser: currentUserIndex == _currentIndex,
+                          );
+                        },
                         child: Card(
                           color: habitIndex.isEven ? AppColors.primaryColor.withAlpha(50) : null,
                           shape: StadiumBorder(side: BorderSide(color: AppColors.secondaryColor)),
@@ -162,7 +175,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                       semanticLabel: "mark habit",
                                       splashRadius: 20,
                                       value: habitIndex.isEven,
-                                      onChanged: (value) {},
+                                      onChanged: (value) {
+                                        showStreakModalSheet(
+                                          context,
+                                          habitName: "Habit ${habitIndex + 1}",
+                                          loggedDates: [
+                                            {DateTime(2025, 3, 1): true},
+                                            {DateTime(2025, 3, 6): true},
+                                          ],
+                                        );
+                                      },
                                     ),
                                   ],
                                 ),
