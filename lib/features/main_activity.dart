@@ -3,6 +3,7 @@ import 'package:rise/core/theme/app_colors.dart';
 import 'package:rise/features/community/presentation/views/community_screen.dart';
 import 'package:rise/features/home_screen/presentation/views/home_screen.dart';
 import 'package:rise/features/leaderboard/presentation/views/leaderboard_screen.dart';
+import 'package:rise/features/profile/presentation/views/profile_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -14,7 +15,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
 
-  final List<Widget> _screens = [HomeScreen(), LeaderboardScreen(), CommunityScreen(), Text("profile screen")];
+  final List<Widget> _screens = [HomeScreen(), LeaderboardScreen(), CommunityScreen(), ProfileScreen()];
 
   @override
   Widget build(BuildContext context) {

@@ -2,6 +2,8 @@ const appName = "Rise";
 
 String avatar(dynamic value) => 'https://robohash.org/$value';
 
+const aboutApp = "Rise is a powerful habit tracker designed to help users build and maintain habits, stay consistent, and reach their goals. With features like streak tracking, social habit sharing, reminders, and leaderboards, Rise makes habit-building engaging and effective.";
+
 
 String streakIcons(int level) {
   switch (level) {
